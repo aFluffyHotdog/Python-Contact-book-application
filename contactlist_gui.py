@@ -38,7 +38,10 @@ def load_gui(app):
 
     tk.Entry(app.container, text=app.text_address, width=30) \
         .grid(row=9, column=0)
-
+    
+    
+    #NEO put the damn favourite display here
+    
     # establish and grid a frame for action buttons NEW, EDIT, DELETE, CLEAR
     app.action_frame = tk.Frame(app.container)
     app.action_frame.grid(row=10, column=0, sticky=EW)
@@ -51,20 +54,26 @@ def load_gui(app):
     # buttons for EDIT, DELETE, CLEAR person and grid it to action_frame
     # then grid_remove to hide from view
     # EDIT button
-    app.btn_edit_person = tk.Button(app.action_frame, text="EDIT", command=lambda: contactlist_func.edit_person(app),
+    app.btn_edit_person = tk.Button(app.action_frame, text="Edit", command=lambda: contactlist_func.edit_person(app),
                                    relief=GROOVE, bg='#dcdcdc')
     app.btn_edit_person.grid(row=0, column=0, pady=10, padx=5)
     app.btn_edit_person.grid_remove()
     # DELETE button
-    app.btn_delete_person = tk.Button(app.action_frame, text="DELETE", command=lambda: contactlist_func.delete_person(app),
+    app.btn_delete_person = tk.Button(app.action_frame, text="Delete", command=lambda: contactlist_func.delete_person(app),
                                    relief=GROOVE, bg='#dcdcdc')
     app.btn_delete_person.grid(row=0, column=1, pady=10, padx=5)
     app.btn_delete_person.grid_remove()
     # CLEAR button
-    app.btn_clear_form = tk.Button(app.action_frame, text="CLEAR", command=lambda: contactlist_func.clear_form(app),
+    app.btn_clear_form = tk.Button(app.action_frame, text="Clear", command=lambda: contactlist_func.clear_form(app),
               relief=GROOVE, bg='#dcdcdc')
     app.btn_clear_form.grid(row=0, column=2, pady=10, padx=5)
     app.btn_clear_form.grid_remove()
+    #FAVORITE BUTTON
+
+    app.btn_fav = tk.Button(app.action_frame, text="Favourite", command=lambda: contactlist_func.fav(app),
+              relief=GROOVE, bg='#dcdcdc')
+    app.btn_fav.grid(row=0, column=3, pady=10, padx=5)
+    app.btn_fav.grid_remove()
 
     tk.Label(app.container, text="Contact List").grid(row=0, column=1, sticky=W, padx=(25, 0))
 
