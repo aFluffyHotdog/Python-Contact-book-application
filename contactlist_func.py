@@ -69,7 +69,7 @@ def create_db():
                     "col_lname TEXT,"\
                     "col_email TEXT,"\
                     "col_phone TEXT,"\
-                    "col_address TEXT)"
+                    "col_address TEXT, col_fav INT DEFAULT 0)"
         cur.execute(sql_query)
         conn.commit()
     conn.close()
@@ -159,9 +159,22 @@ def set_action_buttons(app, add=True):
         app.btn_edit_person.grid_remove()
         app.btn_delete_person.grid_remove()
         app.btn_clear_form.grid_remove()
+        app.btn_fav.grid_remove()
         app.btn_add_person.grid()
     else:
         app.btn_add_person.grid_remove()
         app.btn_edit_person.grid()
         app.btn_delete_person.grid()
         app.btn_clear_form.grid()
+        app.btn_fav.grid()
+def fav(app):
+    fav_row = (app.text_id.get(),)
+    conn = db_conn()
+    with conn:
+        cur = conn.cursor()
+        sql_query = "UPDATE tbl_contactlist SET col_fave = 1 WHERE ID=?"
+        cur.execute(sql_query, fav_row)
+        conn.commit()
+    conn.close()
+    clear_form(app)
+    load_contactlist(app)
