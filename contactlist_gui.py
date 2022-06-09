@@ -39,12 +39,6 @@ def load_gui(app):
     tk.Entry(app.container, text=app.text_address, width=30) \
         .grid(row=9, column=0)
     
-    #Favorite 
-    tk.Lable(app.container, text="Favorite") \
-        .grid(row=10, column=0, sticky=W)
-    
-    tk.Entry(app.container, text=app.fav, width=30) \
-        .grid(row=11, column=0)
 
     # establish and grid a frame for action buttons NEW, EDIT, DELETE, CLEAR
     app.action_frame = tk.Frame(app.container)
