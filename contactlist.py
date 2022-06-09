@@ -28,6 +28,7 @@ class AppWindow(Frame):
         self.text_email = StringVar()
         self.text_phone_number = StringVar()
         self.text_address = StringVar()
+        self.text_favorite = StringVar()
 
         # create list for form fields and put variables in list
         self.contactlist_fields = []
@@ -37,6 +38,7 @@ class AppWindow(Frame):
         self.contactlist_fields.append(self.text_email)
         self.contactlist_fields.append(self.text_phone_number)
         self.contactlist_fields.append(self.text_address)
+        self.contactlist_fields.append(self.text_favorite)
 
         # set contactlist list for displaying contacts
         self.contactlist_list = []
