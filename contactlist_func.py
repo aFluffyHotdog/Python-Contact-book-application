@@ -16,12 +16,12 @@ def add_person(app):
 
     # put input fields into tuple
     insert_row = (app.text_first_name.get(), app.text_last_name.get(), app.text_email.get(),
-                  app.text_phone_number.get(), app.text_address.get())
+                  app.text_phone_number.get(), app.text_address.get(), app.text_favorite.get())
     conn = db_conn()
     with conn:
         cur = conn.cursor()
-        sql_query = "INSERT INTO tbl_contactlist (col_fname, col_lname, col_email, col_phone, col_address)"\
-                    "VALUES (?, ?, ?, ?, ?)"
+        sql_query = "INSERT INTO tbl_contactlist (col_fname, col_lname, col_email, col_phone, col_address, col_favorite)"\
+                    "VALUES (?, ?, ?, ?, ?, ?)"
         cur.execute(sql_query, insert_row)
         conn.commit()
     conn.close()
@@ -33,11 +33,11 @@ def edit_person(app):
     if app.text_first_name.get() == "" or app.text_last_name.get() == "":
         return
     update_row = (app.text_first_name.get(), app.text_last_name.get(), app.text_email.get(),
-                  app.text_phone_number.get(), app.text_address.get(), app.text_id.get())
+                  app.text_phone_number.get(), app.text_address.get(), app.text_favorite.get(), app.text_id.get())
     conn = db_conn()
     with conn:
         cur = conn.cursor()
-        sql_query = "UPDATE tbl_contactlist SET col_fname=?, col_lname=?, col_email=?, col_phone=?, col_address=?"\
+        sql_query = "UPDATE tbl_contactlist SET col_fname=?, col_lname=?, col_email=?, col_phone=?, col_address=?, col_favorite=?"\
                     "WHERE ID=?"
         cur.execute(sql_query, update_row)
         conn.commit()
@@ -69,7 +69,7 @@ def create_db():
                     "col_lname TEXT,"\
                     "col_email TEXT,"\
                     "col_phone TEXT,"\
-                    "col_address TEXT, col_fav INT DEFAULT 0)"
+                    "col_address TEXT, col_favorite TEXT)"
         cur.execute(sql_query)
         conn.commit()
     conn.close()
@@ -172,7 +172,7 @@ def fav(app):
     conn = db_conn()
     with conn:
         cur = conn.cursor()
-        sql_query = "UPDATE tbl_contactlist SET col_fave = 1 WHERE ID=?"
+        sql_query = "UPDATE tbl_contactlist SET col_favorite = 'Favorite' WHERE ID=?"
         cur.execute(sql_query, fav_row)
         conn.commit()
     conn.close()
