@@ -1,3 +1,4 @@
+
 from tkinter import *
 import contactlist_gui
 import contactlist_func
@@ -13,16 +14,16 @@ class AppWindow(Frame):
         self.app.resizable(width=False, height=False)
         # TODO: add center_window function
         # contactlist_func.center_window(app, 500, 320)
-        self.app.geometry('{}x{}'.format(500, 320))
+        self.app.geometry('{}x{}'.format(500, 340))
 
         self.app.title('Python Contact Book')
         #self.app.iconbitmap(self.app, default="assets/contactlist.ico")
-        #chaning background color to red
-        self.app.configure(bg='white')
+        #chaning background color 
+        self.app.configure(bg='Turquoise')
         # create an outer frame with padding around window to put all other content
         self.container = Frame(self.app)
         self.container.grid(row=0, column=0, padx=25, pady=10)
-        self.container.configure(bg='grey')
+        self.container.configure(bg='Turquoise')
         # define tkinter string vars for form fields
         self.text_id = StringVar()
         self.text_first_name = StringVar()
