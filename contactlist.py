@@ -8,19 +8,21 @@ class AppWindow(Frame):
         Frame.__init__(self, *args, **kwargs)
         self.app = app
 
-        self.app.option_add("*font", "Helvetica 10")
+     
+        self.app.option_add("*font", "ComicSansMS 10")
         self.app.resizable(width=False, height=False)
         # TODO: add center_window function
-        # contactlist_func.center_window(app, 500, 300)
-        self.app.geometry('{}x{}'.format(500, 300))
+        # contactlist_func.center_window(app, 500, 320)
+        self.app.geometry('{}x{}'.format(500, 320))
 
         self.app.title('Python Contact Book')
-        self.app.iconbitmap(self.app, default="assets/contactlist.ico")
-
+        #self.app.iconbitmap(self.app, default="assets/contactlist.ico")
+        #chaning background color to red
+        self.app.configure(bg='white')
         # create an outer frame with padding around window to put all other content
         self.container = Frame(self.app)
         self.container.grid(row=0, column=0, padx=25, pady=10)
-
+        self.container.configure(bg='grey')
         # define tkinter string vars for form fields
         self.text_id = StringVar()
         self.text_first_name = StringVar()
