@@ -1,11 +1,13 @@
 import tkinter as tk
 from tkinter import *
+from tkinter import font
+from turtle import bgcolor
 import contactlist_func
 
 
 def load_gui(app):
-
-    tk.Label(app.container, text="First Name")\
+    
+    tk.Label(app.container, text="First Name", font='ComicSansMS 10', fg='#000000', bg='#40e0d0')\
         .grid(row=0, column=0, sticky=W)
 
     # create a hidden entry field to store the ID of each contactlist entry
@@ -15,32 +17,32 @@ def load_gui(app):
     tk.Entry(app.container, text=app.text_first_name, width=30)\
         .grid(row=1, column=0)
 
-    tk.Label(app.container, text="Last Name") \
+    tk.Label(app.container, text="Last Name", font='ComicSansMS 10', fg='#000000', bg='#40e0d0') \
         .grid(row=2, column=0, sticky=W)
 
     tk.Entry(app.container, text=app.text_last_name, width=30) \
         .grid(row=3, column=0)
 
-    tk.Label(app.container, text="Email")\
+    tk.Label(app.container, text="Email", font='ComicSansMS 10', fg='#000000', bg='#40e0d0')\
         .grid(row=4, column=0, sticky=W)
 
     tk.Entry(app.container, text=app.text_email, width=30)\
         .grid(row=5, column=0)
 
-    tk.Label(app.container, text="Phone Number") \
+    tk.Label(app.container, text="Phone Number", font='ComicSansMS 10', fg='#000000', bg='#40e0d0') \
         .grid(row=6, column=0, sticky=W)
 
     tk.Entry(app.container, text=app.text_phone_number, width=30) \
         .grid(row=7, column=0)
 
-    tk.Label(app.container, text="Address") \
+    tk.Label(app.container, text="Address", font='ComicSansMS 10', fg='#000000', bg='#40e0d0') \
         .grid(row=8, column=0, sticky=W)
 
     tk.Entry(app.container, text=app.text_address, width=30) \
         .grid(row=9, column=0)
     
     
-    tk.Label(app.container, text="Favorite") \
+    tk.Label(app.container, text="Favorite", font='ComicSansMS 10', fg='#000000', bg='#40e0d0') \
         .grid(row=10, column=0, sticky=W)
 
     tk.Entry(app.container, text=app.text_favorite, width=30) \
